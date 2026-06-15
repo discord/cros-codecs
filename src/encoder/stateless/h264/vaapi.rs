@@ -556,7 +556,7 @@ where
             let hrd_buffer_fullness = hrd_buffer_size * 3 / 4;
 
             let hrd_param = BufferType::EncMiscParameter(libva::EncMiscParameter::HRD(
-                libva::EncMiscParameterHRD::new(hrd_buffer_size, hrd_buffer_fullness),
+                libva::EncMiscParameterHRD::new(hrd_buffer_fullness, hrd_buffer_size),
             ));
             picture.add_buffer(self.context().create_buffer(hrd_param)?);
         }
@@ -568,8 +568,6 @@ where
                         libva::EncMiscParameterBufferMaxFrameSize::new(max_frame_size as u32),
                     ));
                 picture.add_buffer(self.context().create_buffer(max_frame_size_param)?);
-            } else {
-                warn!("Max frame size not supported");
             }
         }
 
@@ -580,8 +578,6 @@ where
                         libva::EncMiscParameterBufferQualityLevel::new(quality),
                     ));
                 picture.add_buffer(self.context().create_buffer(quality_param)?);
-            } else {
-                warn!("Quality level not supported");
             }
         }
 
