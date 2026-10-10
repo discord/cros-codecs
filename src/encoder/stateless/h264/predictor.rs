@@ -193,7 +193,8 @@ impl<Picture, Reference>
             // I frame is every `self.limit` is requested
             intra_period: self.limit as u32,
             // There is no B frames between I and P frames
-            ip_period: 0,
+            // which is indicated by a value of 1, not 0.
+            ip_period: 1,
 
             num_macroblocks,
 
@@ -257,7 +258,8 @@ impl<Picture, Reference>
             // I frame is every `self.limit` is requested
             intra_period: self.limit as u32,
             // There is no B frames between I and P frames
-            ip_period: 0,
+            // which is indicated by a value of 1, not 0.
+            ip_period: 1,
 
             num_macroblocks,
 

@@ -800,7 +800,7 @@ pub(super) mod tests {
             ref_list_0: vec![],
             ref_list_1: vec![],
             intra_period: 1,
-            ip_period: 0,
+            ip_period: 1,
             num_macroblocks: (WIDTH * HEIGHT) as usize / (16 * 16),
             is_idr: true,
             tunings: Tunings {
